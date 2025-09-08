@@ -3,23 +3,29 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: process.env.MYSQL_HOST,
-      port: parseInt(process.env.MYSQL_PORT!),
-      password: process.env.MYSQL_PASSWORD,
-      username: process.env.MYSQL_USER,
-      entities: [],
-      database: process.env.MYSQL_DATABASE,
-      synchronize: false,
-      logging: true,
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        type: 'mysql',
+        host:  configService.get<string>('MYSQL_HOST'),
+        port: configService.get<number>('MYSQL_port'),
+        password: configService.get<string>('MYSQL_PASSWORD'),
+        username: configService.get<string>('MYSQL_USER'),
+        entities: [],
+        database: process.env.MYSQL_DATABASE,
+        synchronize: false,
+        logging: true,
+      }),
+      inject: [ConfigService],
     }),
     UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
