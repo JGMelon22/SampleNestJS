@@ -13,7 +13,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) { }
+  constructor(private readonly userService: UserService) {}
 
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {
@@ -44,30 +44,30 @@ export class UserController {
     } catch (error) {
       return {
         success: false,
-        message: error.message
-      }
+        message: error.message,
+      };
     }
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
+  async findOne(@Param('id') id: number) {
     try {
       const data = await this.userService.findOne(+id);
       return {
         success: true,
         data,
-        message: 'User Fetched Successfully'
-      }
+        message: 'User Fetched Successfully',
+      };
     } catch (error) {
       return {
         success: false,
-        message: error.message
-      }
+        message: error.message,
+      };
     }
   }
 
   @Patch(':id')
-  async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+  async update(@Param('id') id: number, @Body() updateUserDto: UpdateUserDto) {
     try {
       await this.userService.update(+id, updateUserDto);
       return {
@@ -77,9 +77,8 @@ export class UserController {
     } catch (error) {
       return {
         success: false,
-        message: error.message
-      }
-
+        message: error.message,
+      };
     }
   }
 
@@ -89,13 +88,13 @@ export class UserController {
       await this.userService.remove(+id);
       return {
         success: true,
-        message: 'User Deleted Successfully'
-      }
+        message: 'User Deleted Successfully',
+      };
     } catch (error) {
       return {
         success: false,
-        message: error.message
-      }
+        message: error.message,
+      };
     }
   }
 }

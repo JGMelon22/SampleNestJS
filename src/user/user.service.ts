@@ -24,9 +24,8 @@ export class UserService {
   async findOne(id: number): Promise<User> {
     const userData = await this.userRepository.findOneBy({ id });
 
-    if (!userData) {
+    if (!userData)
       throw new HttpException('User Not Found', HttpStatus.NOT_FOUND);
-    }
 
     return userData;
   }
