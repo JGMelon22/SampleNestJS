@@ -1,6 +1,6 @@
 # Users NestJS API
-A vacations side project and first attempt to work with NestJS.
-Do not take it to serious, I'm trying to understant TypeScript and Node at the back-end.
+A vacations side project and first attempt to work with NextJS. 
+Do not take it to serious, I'm trying to understand TypeScript and Node at the back-end.
 
 ### 🧰 Tech Stack
 
