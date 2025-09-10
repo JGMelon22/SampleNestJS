@@ -101,7 +101,7 @@ export class UserController {
   })
   @ApiResponse({
     status: 404,
-    description: 'Usuário not found encontrado',
+    description: 'User not found',
     type: User,
   })
   async findOne(@Param('id') id: number) {
