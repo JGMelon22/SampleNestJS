@@ -1,5 +1,5 @@
 # Users NestJS API
-A vacations side project and first attempt to work with NextJS. 
+A vacations side project and first attempt to work with NextJS.
 Do not take it to serious, I'm trying to understand TypeScript and Node at the back-end.
 
 ### 🧰 Tech Stack
@@ -23,6 +23,57 @@ Do not take it to serious, I'm trying to understand TypeScript and Node at the b
     <img src="https://github.com/user-attachments/assets/4e71e35d-5c04-4a4a-ba30-fda055906595" alt="VS Code Screenshot" width="650"/>
   </div>
 </div>
+
+### 🛠️🚀 How to execute it?
+
+There are two possible ways: locally or via Docker
+
+#### A) Locally:
+1. Clone the current repository:
+   ```bash
+   git clone git@github.com:JGMelon22/SampleNestJS.git
+   ```
+
+2. Enter the project directory and install dependencies:
+   ```bash
+   cd SampleNestJS
+   npm install
+   ```
+
+3. Configure the database credentials in the `.env` file to match your MySQL instance
+
+4. Start the application using the Nest CLI:
+   ```bash
+   nest start
+   ```
+
+5. Access the Swagger UI in your browser: `http://localhost:3000/api`
+
+#### B) Via Docker:
+1. Clone the current repository:
+   ```bash
+   git clone git@github.com:JGMelon22/SampleNestJS.git
+   ```
+
+2. Enter the project directory and install dependencies:
+   ```bash
+   cd SampleNestJS
+   npm install
+   ```
+
+3. Configure the database credentials in the `.env` file to match your MySQL instance
+
+4. Build the Docker image:
+   ```bash
+   docker build -t my-nestjs-app .
+   ```
+
+5. Run the Docker container:
+   ```bash
+   docker run --network host my-nestjs-app
+   ```
+
+6. Access the Swagger UI in your browser: `http://localhost:3000/api`
 
 ### 🧩 Dependencies
 - [`TypeORM`](https://typeorm.io/docs/getting-started) — A beautiful, simple API for interacting with your database that takes full advantage of TypeScript's type system.
